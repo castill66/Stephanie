@@ -13,11 +13,11 @@ Servo servo1;  // create servo object to control a servo
 Servo servo2;  // create servo object to control a servo
 Servo servo3;  // create servo object to control a servo
 Servo servo4;  // create servo object to control a servo
-int loopdelay = 30;
+int loopdelay = 50;
 
 
-int pos1 = 80;    // variable to store the servo position
-int pos2 = 100;    // variable to store the servo position
+int pos1 = 50;    // variable to store the servo position
+int pos2 = 140;    // variable to store the servo position
 int pos;
 
 void setup() {
