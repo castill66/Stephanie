@@ -5,12 +5,13 @@
 Servo servo;
 
 // Settings
-int InitialServoAngle = 90;
+int InitialServoAngle = 0;
 int ServoInc = 0;
 int ServoIncGain = 1;
-int FinalServoAngle = 170;
-int ServoDelay = 40;
-int PinNumber = 13;
+int FinalServoAngle = 180;
+int ServoDelay = 10;
+int PinNumber = 9;
+int i = InitialServoAngle;
 
 
 void setup() {
@@ -26,20 +27,20 @@ void setup() {
   else
     ServoInc = 0;
 
+  servo.write(InitialServoAngle);
+  delay(1000);
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int i;
-  for(i=InitialServoAngle; i <= FinalServoAngle; i+= ServoInc)
-  {
-    servo.write(i);
-    delay(ServoDelay);
-  }
 
-  for(i=FinalServoAngle; i >= InitialServoAngle; i-= ServoInc)
+  servo.write(i);
+  i += ServoInc;
+  delay(ServoDelay);
+  if(i == FinalServoAngle || i == InitialServoAngle )
   {
-    servo.write(i);
-    delay(ServoDelay);
+    ServoInc *= -1;
+    delay(1000);
   }
 }
